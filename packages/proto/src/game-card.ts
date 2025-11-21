@@ -11,19 +11,17 @@ export class GameCardElement extends LitElement {
 
   override render() {
     return html`
-      <section class="card">
-        <h2>
-          ${this.iconRef ? html`
-            <svg class="icon" width="22" height="22" aria-hidden="true" focusable="false">
-              <use href="${this.iconRef}" />
-            </svg>
-          ` : ''}
-          <slot name="title">Card Title</slot>
-        </h2>
-        <ul class="sequence-grid">
-          <slot>Default content</slot>
-        </ul>
-      </section>
+      <h2>
+        ${this.iconRef ? html`
+          <svg class="icon" width="22" height="22" aria-hidden="true" focusable="false">
+            <use href="${this.iconRef}" />
+          </svg>
+        ` : ''}
+        <slot name="title">Card Title</slot>
+      </h2>
+      <ul class="sequence-grid">
+        <slot>Default content</slot>
+      </ul>
     `;
   }
 
@@ -32,9 +30,7 @@ export class GameCardElement extends LitElement {
     css`
       :host {
         display: block;
-      }
 
-      .card {
         background: var(--color-surface, #FFFFFF);
         border: 1px solid var(--color-border, #B8B8AA);
         border-radius: var(--radius-md, 12px);
